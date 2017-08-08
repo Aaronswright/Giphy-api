@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+</head>
+
+<body>
+    <div class="container">
+    <div id="animalsbuttons">
+
+    <button id="cat-button" data-name= "cat" style="margin: 5px";>#cat-button</button>
+    <button id="bunny" data-name= "bunny" style="margin: 5px">#bunny-button</button>
+    <button id="fox" data-name="fox" style="margin: 5px">#Fox-button</button>
+    <button id="bird" data-name="bird" style="margin: 5px">#bird-button</button>
+
+    <h3>My Favorite...I guess</h3>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function()
+    {
+        $('button').on('click', function() {
+            var animalsbuttons= $(this).data('name');
+            var queryURL = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=animals";
+
+        $.ajax({
+
+            url: queryURL,
+            method: "GET"
+
+            .done(function(response) {
+                var imageUrl = response.data.image_original_url;
+                console.log(response);
+
+                var animalImage = $('img/>');
+
+
+            })
+        })
+        })
+
+
+
+    })
+</script>
+</div>
+</div>
+</body>
+</html>
+
+
